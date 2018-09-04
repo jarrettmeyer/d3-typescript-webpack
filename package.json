@@ -1,0 +1,38 @@
+{
+  "name": "d3-typescript-demo",
+  "version": "1.0.0",
+  "description": "D3 Typescript Demonstration",
+  "private": true,
+  "scripts": {
+    "start": "npx webpack-dev-server --open --mode=development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarrettmeyer/d3-typescript-demo.git"
+  },
+  "keywords": [
+    "d3",
+    "d3js",
+    "typescript",
+    "javascript"
+  ],
+  "author": "Jarrett Meyer <jarrettmeyer@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarrettmeyer/d3-typescript-demo/issues"
+  },
+  "homepage": "https://github.com/jarrettmeyer/d3-typescript-demo#readme",
+  "devDependencies": {
+    "@types/d3": "^5.0.0",
+    "@types/jquery": "^3.3.6",
+    "d3": "^5.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.3.1",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "alwaysStrict": true,
+    "inlineSourceMap": true,
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "rootDir": "./",
+    "strictNullChecks": true,
+    "target": "ES2018"
+    
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
