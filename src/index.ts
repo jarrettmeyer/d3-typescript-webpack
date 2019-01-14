@@ -25,9 +25,6 @@ export interface Node extends d3.SimulationNodeDatum {
 }
 
 
-export interface Selection<T> extends d3.Selection<d3.BaseType, T, d3.BaseType, {}> { }
-
-
 export interface Simulation extends d3.Simulation<Node, Link> { }
 
 
@@ -110,7 +107,7 @@ function createSimulation(nodes: Node[], width: number, height: number): Simulat
 }
 
 
-function drawControls(container: d3.Selection<d3.BaseType, {}, d3.BaseType, {}>, svg: Selection<{}>, graph: GraphData): void {
+function drawControls(container: d3.Selection<HTMLDivElement, {}, HTMLElement, any>, svg: d3.Selection<SVGSVGElement, {}, HTMLElement, any>, graph: GraphData): void {
     let row = container.append("div")
         .style("display", "block");
 
@@ -192,7 +189,7 @@ function drawControls(container: d3.Selection<d3.BaseType, {}, d3.BaseType, {}>,
 }
 
 
-function drawFDG(svg: Selection<{}>, graph: GraphData): Simulation {
+function drawFDG(svg: d3.Selection<SVGSVGElement, {}, HTMLElement, any>, graph: GraphData): Simulation {
     svg.selectAll("*").remove();
 
     let simulation = createSimulation(graph.nodes, width, height);
@@ -212,7 +209,7 @@ function drawFDG(svg: Selection<{}>, graph: GraphData): Simulation {
 }
 
 
-function drawLinks(container: Selection<{}>, links: Link[]): Selection<Link> {
+function drawLinks(container: d3.Selection<SVGSVGElement, {}, HTMLElement, {}>, links: Link[]): d3.Selection<SVGLineElement, Link, SVGGElement, {}> {
     return container.append("g")
         .classed("links", true)
         .selectAll("line.link")
@@ -230,7 +227,7 @@ function drawLinks(container: Selection<{}>, links: Link[]): Selection<Link> {
 }
 
 
-function drawNodes(container: Selection<{}>, nodes: Node[]): Selection<Node> {
+function drawNodes(container: d3.Selection<SVGSVGElement, {}, HTMLElement, {}>, nodes: Node[]): d3.Selection<SVGCircleElement, Node, SVGGElement, {}> {
     return container.append("g")
         .classed("nodes", true)
         .selectAll("circle.node")
@@ -246,7 +243,7 @@ function drawNodes(container: Selection<{}>, nodes: Node[]): Selection<Node> {
 }
 
 
-function drawTitles(container: Selection<{}>, nodes: Node[]): Selection<Node> {
+function drawTitles(container: d3.Selection<SVGSVGElement, {}, HTMLElement, {}>, nodes: Node[]): d3.Selection<SVGTextElement, Node, SVGGElement, {}> {
     return container.append("g")
         .classed("titles", true)
         .selectAll("text.title")
@@ -286,7 +283,7 @@ function filterNodes(links: Link[]): (node: Node) => boolean {
 }
 
 
-function getDimensions(selection: Selection<{}>): ClientRect {
+function getDimensions(selection: d3.Selection<HTMLDivElement, {}, HTMLElement, {}>): ClientRect {
     let node: d3.BaseType = selection.node();
     if (node) {
         let element = <Element>node;
@@ -355,7 +352,7 @@ function reduceUniqueNodes(): (previous: Node[], current: Node) => Node[] {
 }
 
 
-function updateLinkPosition(links: Selection<Link>): Selection<Link> {
+function updateLinkPosition(links: d3.Selection<SVGLineElement, Link, SVGGElement, {}>): d3.Selection<SVGLineElement, Link, SVGGElement, {}> {
     return links.attr("x1", d => getNodeX(d.source))
         .attr("y1", d => getNodeY(d.source))
         .attr("x2", d => getNodeX(d.target))
@@ -363,7 +360,7 @@ function updateLinkPosition(links: Selection<Link>): Selection<Link> {
 }
 
 
-function updateNodePosition(nodes: Selection<Node>): Selection<Node> {
+function updateNodePosition(nodes: d3.Selection<SVGCircleElement, Node, SVGGElement, {}>): d3.Selection<SVGCircleElement, Node, SVGGElement, {}> {
     return nodes.attr("cx", d => (d.x) ? d.x : 0)
         .attr("cy", d => (d.y) ? d.y: 0);
 }
@@ -376,7 +373,7 @@ function updateSimulationLinks(simulation: Simulation, links: Link[]): void {
 }
 
 
-function updateTitlePosition(titles: Selection<Node>): Selection<Node> {
+function updateTitlePosition(titles: d3.Selection<SVGTextElement, Node, SVGGElement, {}>): d3.Selection<SVGTextElement, Node, SVGGElement, {}> {
     return titles.attr("x", d => (d.x) ? d.x : 0)
         .attr("y", d => (d.y) ? d.y : 0);
 }
