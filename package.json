@@ -24,15 +24,15 @@
   },
   "homepage": "https://github.com/jarrettmeyer/d3-typescript-demo#readme",
   "devDependencies": {
-    "@types/d3": "^5.0.0",
-    "@types/jquery": "^3.3.6",
+    "@types/d3": "^5.5.0",
+    "@types/jquery": "^3.3.29",
     "d3": "^5.7.0",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.3.1",
-    "ts-loader": "^4.5.0",
-    "typescript": "^3.0.3",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.7"
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   }
 }
