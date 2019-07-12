@@ -72,7 +72,7 @@ function createDrawing(graph: GraphData): Simulation {
     d3.select("html")
         .style("height", "100%");
 
-    let div = d3.select("body")
+    let div: d3.Selection<HTMLDivElement, any, HTMLElement, any> = d3.select("body")
         .style("height", "100%")
         .style("min-height", "100%")
         .style("margin", "0")
@@ -88,7 +88,7 @@ function createDrawing(graph: GraphData): Simulation {
     width = 1.0 * dimensions.width;
     height = 0.9 * dimensions.height;
 
-    let svg = div.append("svg")
+    let svg: d3.Selection<SVGSVGElement, any, HTMLElement, any> = div.append("svg")
         .attr("width", width)
         .attr("height", height);
     
@@ -107,7 +107,7 @@ function createSimulation(nodes: Node[], width: number, height: number): Simulat
 }
 
 
-function drawControls(container: d3.Selection<HTMLDivElement, {}, HTMLElement, any>, svg: d3.Selection<SVGSVGElement, {}, HTMLElement, any>, graph: GraphData): void {
+function drawControls(container: d3.Selection<HTMLDivElement, any, HTMLElement, any>, svg: d3.Selection<SVGSVGElement, any, HTMLElement, any>, graph: GraphData): void {
     let row = container.append("div")
         .style("display", "block");
 
